@@ -611,12 +611,14 @@ namespace ADPA.Services.Security
 
                 var totalCount = await query.CountAsync();
 
-                var guidelines = await query
+                var guidelinesData = await query
                     .Include(hg => hg.Implementations)
                     .OrderByDescending(hg => hg.CreatedAt)
                     .Skip((pageNumber - 1) * pageSize)
                     .Take(pageSize)
-                    .Select(hg => new SecurityHardeningGuidelineDto
+                    .ToListAsync();
+
+                var guidelines = guidelinesData.Select(hg => new SecurityHardeningGuidelineDto
                     {
                         Id = hg.Id,
                         Title = hg.Title,
@@ -655,7 +657,7 @@ namespace ADPA.Services.Security
                             Evidence = impl.Evidence
                         }).ToList()
                     })
-                    .ToListAsync();
+                    .ToList();
 
                 return (guidelines, totalCount);
             }
