@@ -2,7 +2,7 @@
 
 **Date:** November 10, 2025  
 **Project:** ADPA (Automated Data Processing Application)  
-**Current Version:** .NET 9.0 Web API + HTML/JS Dashboard  
+**Current Version:** .NET 8.0 (LTS) Web API + HTML/JS Dashboard  
 **Assessment Focus:** Frontend Technology Stack Selection
 
 ---
@@ -10,7 +10,7 @@
 ## 📊 Executive Summary
 
 ### Current State
-- **Backend**: Robust .NET 9.0 Web API with 20+ controllers and 37+ services
+- **Backend**: Robust .NET 8.0 (LTS) Web API with 20+ controllers and 37+ services
 - **Frontend**: Basic HTML/JavaScript dashboard with limited functionality
 - **Architecture**: RESTful API + Static file serving
 - **Build Status**: ✅ Builds successfully (514 warnings, no errors)
@@ -311,6 +311,24 @@ const { data: session } = useSession();
 ### Support
 - **Blazor**: Microsoft enterprise support
 - **Next.js**: Vercel commercial support available
+
+---
+
+## 🧭 Risk Register (Blazor path)
+
+| Risk | Impact | Likelihood | Mitigations |
+|------|--------|------------|-------------|
+| Server connection density (Blazor Server circuits) | Elevated memory/CPU per user at peak | Medium | Scale-out horizontally; enable circuit resiliency; keep long-running work off circuit; consider SSR + deferred interactivity or targeted WebAssembly for high-traffic surfaces |
+| Long-running document processing tying up request threads | Throughput degradation | Medium | Use background workers (`IHostedService`, Azure Functions) and queues (Azure Storage/Service Bus); stream uploads directly to blob storage; process asynchronously; report progress via SignalR |
+| Global latency for distributed users | Slower TTFB/TTI | Medium | Regional hosting; Front Door/Traffic Manager; prerender pages; cache where safe; compress over the wire; tune gRPC/WebSockets keep-alives |
+| DTO drift between services | Runtime errors | Low | Centralize contracts in shared assembly; version APIs; validate with integration tests; add OpenAPI generation and CI checks |
+| Vendor lock-in perception | Strategic risk | Low | API-first design; portability of domain logic; storage abstractions; avoid cloud-specific code in core; IaC for reproducibility |
+| Smaller OSS ecosystem vs React | Feature gap risk | Low | Use mature Blazor component libraries (MudBlazor/Radzen); leverage JS interop selectively for niche components |
+
+References:
+- SignalR scale guidance: `https://learn.microsoft.com/aspnet/core/signalr/scale`
+- Background tasks with hosted services: `https://learn.microsoft.com/aspnet/core/fundamentals/host/hosted-services`
+- Front Door/latency: `https://learn.microsoft.com/azure/frontdoor/front-door-overview`
 
 ---
 

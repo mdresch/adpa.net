@@ -72,7 +72,7 @@ This review produced a complete suite of decision-making documents:
 ### Perfect Match for ADPA
 
 **ADPA is a document processing platform with:**
-- ✅ .NET 9.0 backend
+- ✅ .NET 8.0 (LTS) backend
 - ✅ Complex document processing
 - ✅ Real-time status updates needed
 - ✅ Enterprise security requirements
@@ -203,7 +203,7 @@ TOTAL:           $450,000
 ### Technical Findings
 
 1. **Technology Alignment**
-   - ADPA backend is .NET 9.0
+   - ADPA backend is .NET 8.0 (LTS)
    - Blazor is the natural frontend choice
    - Next.js creates unnecessary technology split
 
@@ -337,7 +337,7 @@ A: Build a separate Next.js marketing site. Keep Blazor for the core application
 A: Yes. Blazor Server scales well with proper architecture. Can also use Blazor WebAssembly for even better scaling.
 
 **Q: Is Microsoft committed to Blazor long-term?**  
-A: Yes. Blazor is a core part of .NET 9 and actively developed by Microsoft.
+A: Yes. Blazor is part of ASP.NET Core, supported in .NET 8 LTS, and actively developed by Microsoft.
 
 **Q: How easy is it to hire Blazor developers?**  
 A: Very easy. Any C# developer can learn Blazor in 1-2 weeks. Much easier than finding React experts.

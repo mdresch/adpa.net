@@ -53,6 +53,7 @@
 - **TOTAL:** $450,000
 
 **💸 Savings with Blazor: $150,000 (33%)**
+> Assumptions: 6 devs; $2,500/dev‑week; 12 vs 16 weeks delivery; maintenance effort per document; excludes infra cost deltas. Use for directional comparison.
 
 ---
 
@@ -370,7 +371,7 @@ A: .NET MAUI with Blazor Hybrid allows code reuse. React Native would require se
 A: Blazor Server scales to thousands with proper architecture. For more, use Blazor WebAssembly or hybrid approach.
 
 **Q: Is Microsoft committed to Blazor?**  
-A: Yes, Blazor is core to .NET strategy. It's in .NET 9 and actively developed.
+A: Yes. Blazor is part of ASP.NET Core, supported in .NET 8 LTS, and actively developed.
 
 **Q: Can we hire Blazor developers?**  
 A: Any C# developer can learn Blazor quickly. Easier than learning React + TypeScript.

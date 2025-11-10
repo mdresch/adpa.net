@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Add API documentation support
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 // Register Entity Framework Core 10 DbContext
 builder.Services.AddDbContext<AdpaEfDbContext>(options =>
 {
@@ -167,6 +168,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 else
 {

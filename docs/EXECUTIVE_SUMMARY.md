@@ -59,6 +59,7 @@ TOTAL:          $450,000
 ```
 
 ### **💸 Savings with Blazor: $150,000 (33%)**
+> Assumptions: 6 developers; $2,500 per dev‑week; Blazor delivery in 12 weeks vs Next.js 16 weeks; maintenance staffing per doc; no infra deltas included. Numbers are order‑of‑magnitude for decision support.
 
 ---
 
@@ -221,7 +222,7 @@ socket.on('update', data => setStatus(data));
 
 ### Current Architecture
 ```
-✅ .NET 9.0 Backend
+✅ .NET 8.0 (LTS) Backend
 ✅ 20+ Controllers
 ✅ 37+ Services
 ✅ Entity Framework
@@ -392,7 +393,7 @@ socket.on('update', data => setStatus(data));
 **A:** Yes. Blazor Server scales with proper architecture. Can use WebAssembly for even more scale.
 
 ### Q: What if Microsoft abandons Blazor?
-**A:** Very unlikely. Blazor is core to .NET 9 strategy and actively developed.
+**A:** Very unlikely. Blazor is part of ASP.NET Core and supported long‑term in .NET 8 LTS; it is actively developed.
 
 ### Q: How hard to hire Blazor developers?
 **A:** Easy. Any C# developer can learn Blazor in 1-2 weeks.

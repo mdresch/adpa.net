@@ -24,7 +24,7 @@
 ### Prerequisites
 ```bash
 # Required
-- .NET 9.0 SDK
+- .NET 8.0 SDK (LTS)
 - Visual Studio 2022 or VS Code with C# extension
 - SQL Server or PostgreSQL
 
@@ -34,22 +34,22 @@
 ```
 
 ### Create Blazor Project
-```bash
-cd /home/runner/work/adpa.net/adpa.net
+```powershell
+# From repo root on Windows
+cd C:\Users\menno\Source\adpa.net
 
-# Create new Blazor Server project
-dotnet new blazorserver -n ADPA.Web -o ADPA.Web
+# Create new Blazor Server project (target .NET 8 LTS)
+dotnet new blazorserver -n ADPA.Web -o .\ADPA.Web
 
 # Add to solution
-dotnet sln add ADPA.Web/ADPA.Web.csproj
+dotnet sln add .\ADPA.Web\ADPA.Web.csproj
 
-# Add reference to main API project
-cd ADPA.Web
-dotnet add reference ../ADPA.csproj
+# Add reference to main API project (adjust path if different)
+dotnet add .\ADPA.Web\ADPA.Web.csproj reference .\ADPA\ADPA.csproj
 
 # Add required packages
-dotnet add package MudBlazor
-dotnet add package Microsoft.AspNetCore.SignalR.Client
+dotnet add .\ADPA.Web\ package MudBlazor
+dotnet add .\ADPA.Web\ package Microsoft.AspNetCore.SignalR.Client
 ```
 
 ---

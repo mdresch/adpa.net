@@ -1,10 +1,10 @@
 # ADPA .NET Project
 
-This is an ADPA (Automated Data Processing Application) built with .NET 9.0 and C#.
+This is an ADPA (Automated Data Processing Application) built with .NET 8.0 (LTS) and C#.
 
 ## Prerequisites
 
-- .NET 9.0 SDK: https://dotnet.microsoft.com/download
+- .NET 8.0 SDK (LTS): https://dotnet.microsoft.com/download
 
 ## Project Structure
 
@@ -30,7 +30,7 @@ ADPA.Net/
 
 ## Getting Started
 
-1. Install .NET 9.0 SDK from https://dotnet.microsoft.com/download
+1. Install .NET 8.0 SDK (LTS) from https://dotnet.microsoft.com/download
 2. Navigate to the project directory
 3. Run `dotnet restore` to restore dependencies
 4. Run `dotnet build` to build the project

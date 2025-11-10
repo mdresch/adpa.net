@@ -424,7 +424,7 @@ xl: 1920px   /* Extra large devices */
 
 ### Required
 - Visual Studio 2022 or VS Code
-- .NET 9.0 SDK
+- .NET 8.0 SDK (LTS)
 - SQL Server or PostgreSQL
 - Git
 

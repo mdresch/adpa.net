@@ -2,7 +2,7 @@
 
 **Integration Guide for Blazor Server/WebAssembly Frontend**  
 **Updated:** November 8, 2025  
-**Framework:** .NET 9.0 + Blazor
+**Framework:** .NET 8.0 (LTS) + Blazor
 
 ---
 

@@ -41,7 +41,7 @@
 ```
 
 #### 📊 **3. API Documentation & Versioning**
-- **OpenAPI Integration** - Built-in .NET 9.0 API documentation
+- **OpenAPI Integration** - Built-in .NET 8.0 (LTS) API documentation
 - **Endpoints API Explorer** - Automatic endpoint discovery
 - **API Versioning Support** - Version headers and query parameters
 - **Request/Response Logging** - Detailed API monitoring
@@ -190,7 +190,7 @@ Authorization: Bearer {token}
 With the infrastructure foundation complete, we can now confidently move to:
 - **File Processing Pipeline** - Multi-format document processing
 - **OCR Integration** - Text extraction from images/PDFs  
-- **Database Integration** - When .NET 9.0 EF packages become available
+- **Database Integration** - Targeting .NET 8.0 (LTS) EF packages
 - **Real-time Updates** - SignalR integration for live status
 - **Blob Storage** - Azure/AWS file storage integration
 

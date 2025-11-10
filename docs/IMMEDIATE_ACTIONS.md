@@ -36,7 +36,7 @@ dotnet ef database update
 ## 🛠️ Implementation Checklist
 
 ### ✅ Completed (Current State)
-- [x] Basic .NET 9.0 Web API
+- [x] Basic .NET 8.0 (LTS) Web API
 - [x] Controllers (Health, Data)
 - [x] Services layer
 - [x] In-memory data storage
