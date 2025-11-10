@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADPA Administrative Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="demo-badge" style="position: fixed; top: 10px; right: 10px; background: #ff6b35; color: white; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; z-index: 10001;">
+        <i class="fas fa-play"></i> DEMO MODE
+    </div>
+    
+    <div class="demo-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 12px; font-size: 14px; font-weight: 500;">
+        🚀 ADPA Phase 2 UI Dashboard - Live Demo | All data shown is for demonstration purposes
+    </div>
+
+    <div id="app">
+        <div id="mainDashboard" class="main-dashboard" style="display: grid; grid-template-areas: 'header header' 'sidebar main'; grid-template-columns: 280px 1fr; grid-template-rows: 64px 1fr; height: 100vh;">
+            <!-- Top Navigation -->
+            <nav class="top-nav" style="grid-area: header; background: white; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; padding: 0 24px;">
+                <div class="nav-left" style="display: flex; align-items: center; gap: 16px;">
+                    <div class="logo" style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: #0f172a;">
+                        <i class="fas fa-shield-alt" style="color: #2563eb; font-size: 20px;"></i>
+                        <span>ADPA Admin Dashboard</span>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div style="display: flex; align-items: center; gap: 8px; background: none; border: none; padding: 6px 12px; border-radius: 8px; color: #0f172a;">
+                        <div style="width: 32px; height: 32px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">AD</div>
+                        <span>Administrator</span>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Sidebar -->
+            <aside class="sidebar" style="grid-area: sidebar; background: white; border-right: 1px solid #e2e8f0; overflow-y: auto;">
+                <nav class="sidebar-nav" style="padding: 24px 0;">
+                    <div class="nav-section" style="margin-bottom: 32px;">
+                        <h3 style="padding: 0 24px 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; color: #64748b;">Security Configuration</h3>
+                        <ul style="list-style: none; margin: 0; padding: 0;">
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link active" onclick="showDemo('Dashboard')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: white; background: #2563eb; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-tachometer-alt" style="width: 18px; font-size: 16px;"></i> Dashboard
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link" onclick="showDemo('Security Policies')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: #475569; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-shield-alt" style="width: 18px; font-size: 16px;"></i> Security Policies
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link" onclick="showDemo('Access Controls')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: #475569; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-key" style="width: 18px; font-size: 16px;"></i> Access Controls
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link" onclick="showDemo('Encryption Settings')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: #475569; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-lock" style="width: 18px; font-size: 16px;"></i> Encryption Settings
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section" style="margin-bottom: 32px;">
+                        <h3 style="padding: 0 24px 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; color: #64748b;">Authentication</h3>
+                        <ul style="list-style: none; margin: 0; padding: 0;">
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link" onclick="showDemo('Authentication Methods')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: #475569; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-fingerprint" style="width: 18px; font-size: 16px;"></i> Methods
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link" onclick="showDemo('User Management')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: #475569; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-users" style="width: 18px; font-size: 16px;"></i> Users
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <h3 style="padding: 0 24px 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; color: #64748b;">Monitoring</h3>
+                        <ul style="list-style: none; margin: 0; padding: 0;">
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link" onclick="showDemo('Audit Logs')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: #475569; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-list-alt" style="width: 18px; font-size: 16px;"></i> Audit Logs
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 2px;">
+                                <a href="#" class="nav-link" onclick="showDemo('Security Monitoring')" style="display: flex; align-items: center; gap: 12px; padding: 12px 24px; text-decoration: none; color: #475569; font-size: 14px; font-weight: 500;">
+                                    <i class="fas fa-eye" style="width: 18px; font-size: 16px;"></i> Security Monitor
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content" style="grid-area: main; overflow: auto; background: #f8fafc; padding: 24px;">
+                <div id="mainContent">
+                    <div style="max-width: 1200px; margin: 0 auto;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                            <h1 style="font-size: 32px; font-weight: 700; color: #0f172a; margin: 0;">Security Dashboard Overview</h1>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="showDemo('Export Report')" style="padding: 8px 16px; background: transparent; color: #2563eb; border: 1px solid #2563eb; border-radius: 6px; font-size: 14px; cursor: pointer;">
+                                    <i class="fas fa-download"></i> Export Report
+                                </button>
+                                <button onclick="showDemo('Quick Setup')" style="padding: 8px 16px; background: #2563eb; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">
+                                    <i class="fas fa-plus"></i> Quick Setup
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dashboard Stats -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 32px;">
+                            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <h3 style="font-size: 16px; font-weight: 600; color: #0f172a; margin: 0;">Security Policies</h3>
+                                    <div style="width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #2563eb; color: white;">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                </div>
+                                <div style="font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">24</div>
+                                <div style="color: #64748b; font-size: 14px;">Active security policies</div>
+                            </div>
+
+                            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <h3 style="font-size: 16px; font-weight: 600; color: #0f172a; margin: 0;">Access Controls</h3>
+                                    <div style="width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #0891b2; color: white;">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                </div>
+                                <div style="font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">18</div>
+                                <div style="color: #64748b; font-size: 14px;">Configured access controls</div>
+                            </div>
+
+                            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <h3 style="font-size: 16px; font-weight: 600; color: #0f172a; margin: 0;">Active Sessions</h3>
+                                    <div style="width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #059669; color: white;">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                                <div style="font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">47</div>
+                                <div style="color: #64748b; font-size: 14px;">Current user sessions</div>
+                            </div>
+
+                            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <h3 style="font-size: 16px; font-weight: 600; color: #0f172a; margin: 0;">Security Alerts</h3>
+                                    <div style="width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #d97706; color: white;">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                </div>
+                                <div style="font-size: 32px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">3</div>
+                                <div style="color: #64748b; font-size: 14px;">Alerts requiring attention</div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                <h3 style="font-size: 16px; font-weight: 600; color: #0f172a; margin: 0;">Recent Security Events</h3>
+                                <button onclick="showDemo('View All Events')" style="padding: 6px 12px; background: transparent; color: #2563eb; border: 1px solid #2563eb; border-radius: 6px; font-size: 13px; cursor: pointer;">View All</button>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="background: #f8fafc;">
+                                            <th style="padding: 12px 16px; text-align: left; font-weight: 600; color: #0f172a; font-size: 14px; border-bottom: 1px solid #f1f5f9;">Time</th>
+                                            <th style="padding: 12px 16px; text-align: left; font-weight: 600; color: #0f172a; font-size: 14px; border-bottom: 1px solid #f1f5f9;">Event</th>
+                                            <th style="padding: 12px 16px; text-align: left; font-weight: 600; color: #0f172a; font-size: 14px; border-bottom: 1px solid #f1f5f9;">User</th>
+                                            <th style="padding: 12px 16px; text-align: left; font-weight: 600; color: #0f172a; font-size: 14px; border-bottom: 1px solid #f1f5f9;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;">10:30 AM</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;">Password policy updated</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;">admin@adpa.com</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;"><span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500; background: #dcfce7; color: #166534;">Success</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;">09:45 AM</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;">New user registered</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;">john.doe@company.com</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px; border-bottom: 1px solid #f1f5f9;"><span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500; background: #fefbf2; color: #a16207;">Pending</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px;">09:15 AM</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px;">Failed login attempt</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px;">unknown@suspicious.com</td>
+                                            <td style="padding: 12px 16px; color: #475569; font-size: 14px;"><span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500; background: #fef3c7; color: #92400e;">Warning</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function showDemo(feature) {
+            alert(`🎯 Demo Feature: ${feature}\n\nThis feature would be fully implemented in the production version. The demo shows the UI structure and navigation for the ADPA Administrative Dashboard.`);
+        }
+
+        // Add navigation interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            // Welcome message
+            setTimeout(() => {
+                alert('🎉 Welcome to ADPA Dashboard Demo!\n\nThis is a working demonstration of the Phase 2 UI Dashboard. You can:\n\n• Navigate through the sidebar menu\n• Click on dashboard cards\n• Try the action buttons\n• Explore all UI elements\n\nAll data shown is for demonstration purposes.');
+            }, 1000);
+        });
+    </script>
+
+        <!-- Login Screen -->
+        <div id="login-screen" class="login-screen hidden">
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <h1>ADPA</h1>
+                    </div>
+                    <h2>Administrative Dashboard</h2>
+                    <p>Secure Access Portal</p>
+                </div>
+                <div class="login-form">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Sign In</button>
+                    </form>
+                    <div id="login-error" class="error-message hidden"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div id="main-dashboard" class="main-dashboard hidden">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>ADPA Dashboard</span>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search..." id="global-search">
+                    </div>
+                    <div class="notifications">
+                        <button class="notification-btn" id="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">3</span>
+                        </button>
+                        <div class="notification-dropdown" id="notification-dropdown">
+                            <div class="notification-header">
+                                <h4>Notifications</h4>
+                                <button class="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-list" id="notification-list">
+                                <!-- Notifications will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-menu">
+                        <button class="user-btn" id="user-btn">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span class="user-name" id="user-name">Admin User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info">
+                                <div class="user-details">
+                                    <div class="user-name" id="dropdown-user-name">Admin User</div>
+                                    <div class="user-role" id="user-role">Administrator</div>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="#" onclick="showProfile()"><i class="fas fa-user-cog"></i> Profile Settings</a>
+                                <a href="#" onclick="showPreferences()"><i class="fas fa-cog"></i> Preferences</a>
+                                <a href="#" onclick="showHelp()"><i class="fas fa-question-circle"></i> Help</a>
+                                <hr>
+                                <a href="#" onclick="logout()" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar" id="sidebar">
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <h3>Main</h3>
+                        <ul>
+                            <li><a href="#dashboard" data-page="dashboard" class="nav-link active">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>Security Configuration</h3>
+                        <ul>
+                            <li><a href="#security-configuration" data-page="security-configuration" class="nav-link">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Security Config</span>
+                            </a></li>
+                            <li><a href="#policy-rules" data-page="policy-rules" class="nav-link">
+                                <i class="fas fa-rules"></i>
+                                <span>Policy Rules</span>
+                            </a></li>
+                            <li><a href="#hardening-guidelines" data-page="hardening-guidelines" class="nav-link">
+                                <i class="fas fa-lock"></i>
+                                <span>Hardening Guidelines</span>
+                            </a></li>
+                            <li><a href="#vulnerability-scans" data-page="vulnerability-scans" class="nav-link">
+                                <i class="fas fa-bug"></i>
+                                <span>Vulnerability Scans</span>
+                            </a></li>
+                            <li><a href="#security-metrics" data-page="security-metrics" class="nav-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Security Metrics</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>Authentication & Authorization</h3>
+                        <ul>
+                            <li><a href="#authentication" data-page="authentication" class="nav-link">
+                                <i class="fas fa-key"></i>
+                                <span>Authentication</span>
+                            </a></li>
+                            <li><a href="#authorization" data-page="authorization" class="nav-link">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Authorization</span>
+                            </a></li>
+                            <li><a href="#api-keys" data-page="api-keys" class="nav-link">
+                                <i class="fas fa-code"></i>
+                                <span>API Keys</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>Encryption & Security</h3>
+                        <ul>
+                            <li><a href="#encryption" data-page="encryption" class="nav-link">
+                                <i class="fas fa-fingerprint"></i>
+                                <span>Encryption</span>
+                            </a></li>
+                            <li><a href="#api-security" data-page="api-security" class="nav-link">
+                                <i class="fas fa-shield-virus"></i>
+                                <span>API Security</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>Monitoring & Compliance</h3>
+                        <ul>
+                            <li><a href="#audit-logs" data-page="audit-logs" class="nav-link">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Audit Logs</span>
+                            </a></li>
+                            <li><a href="#security-monitoring" data-page="security-monitoring" class="nav-link">
+                                <i class="fas fa-eye"></i>
+                                <span>Security Monitoring</span>
+                            </a></li>
+                            <li><a href="#compliance" data-page="compliance" class="nav-link">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>Compliance</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>System</h3>
+                        <ul>
+                            <li><a href="#system-monitoring" data-page="system-monitoring" class="nav-link">
+                                <i class="fas fa-server"></i>
+                                <span>System Monitoring</span>
+                            </a></li>
+                            <li><a href="#document-management" data-page="document-management" class="nav-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Documents</span>
+                            </a></li>
+                            <li><a href="#analytics" data-page="analytics" class="nav-link">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Analytics</span>
+                            </a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content" id="main-content">
+                <div class="page-container" id="page-container">
+                    <!-- Page content will be loaded here dynamically -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api-client.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        function showDemo(feature) {
+            alert(`🎯 Demo Feature: ${feature}\n\nThis feature would be fully implemented in the production version. The demo shows the UI structure and navigation for the ADPA Administrative Dashboard.`);
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                alert('🎉 Welcome to ADPA Dashboard Demo!\n\nThis is a working demonstration of the Phase 2 UI Dashboard. You can:\n\n• Navigate through the sidebar menu\n• Click on dashboard cards\n• Try the action buttons\n• Explore all UI elements\n\nAll data shown is for demonstration purposes.');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

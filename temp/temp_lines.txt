@@ -1,0 +1,15 @@
+﻿    }
+    
+    if (config.DefaultCORSPolicy == null)
+    {
+        config.DefaultCORSPolicy = new Dictionary<string, object>
+        {
+            { "AllowedOrigins", new[] { "https://localhost:3000" } },
+            { "AllowedMethods", new[] { "GET", "POST", "PUT", "DELETE" } },
+            { "AllowedHeaders", new[] { "Content-Type", "Authorization" } },
+            { "AllowCredentials", false },
+            { "PreflightMaxAge", 3600 }
+        };
+    }
+    
+    if (config.BlockedCountries == null)
