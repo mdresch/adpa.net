@@ -1,0 +1,126 @@
+@inject IJSRuntime JSRuntime
+
+<div class="card">
+    <div class="card-body">
+        <h6>📤 Upload Documents</h6>
+        
+        <InputFile OnChange="HandleFileSelection" 
+                   multiple 
+                   accept=".pdf,.docx,.txt,.csv,.xlsx" 
+                   id="fileInput" 
+                   class="form-control mb-3" />
+
+        @if (_selectedFiles.Any())
+        {
+            <div class="mb-3">
+                @foreach (var file in _selectedFiles)
+                {
+                    <div class="d-flex justify-content-between align-items-center mb-2 p-2 border rounded">
+                        <div>
+                            <span>@GetFileIcon(file.Name) @file.Name</span>
+                            <small class="text-muted d-block">@FormatFileSize(file.Size)</small>
+                        </div>
+                        
+                        @if (_uploadProgress.ContainsKey(file.Name))
+                        {
+                            <div class="progress" style="width: 100px;">
+                                <div class="progress-bar" role="progressbar" style="width: @(_uploadProgress[file.Name])%"></div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+
+            <button class="btn btn-success w-100" @onclick="UploadFiles" disabled="@_isUploading">
+                @if (_isUploading)
+                {
+                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                    <span>Uploading...</span>
+                }
+                else
+                {
+                    <span>📤 Upload @_selectedFiles.Count File(s)</span>
+                }
+            </button>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback OnUploadComplete { get; set; }
+
+    private List<IBrowserFile> _selectedFiles = new();
+    private Dictionary<string, int> _uploadProgress = new();
+    private bool _isUploading = false;
+
+    private void HandleFileSelection(InputFileChangeEventArgs e)
+    {
+        _selectedFiles = e.GetMultipleFiles(10).ToList();
+        _uploadProgress.Clear();
+        StateHasChanged();
+    }
+
+    private async Task UploadFiles()
+    {
+        _isUploading = true;
+
+        try
+        {
+            foreach (var file in _selectedFiles)
+            {
+                try
+                {
+                    _uploadProgress[file.Name] = 0;
+                    
+                    // Simulate upload progress
+                    for (int i = 0; i <= 100; i += 20)
+                    {
+                        _uploadProgress[file.Name] = i;
+                        StateHasChanged();
+                        await Task.Delay(500);
+                    }
+
+                    await JSRuntime.InvokeVoidAsync("alert", $"✅ {file.Name} uploaded successfully (demo)");
+                }
+                catch (Exception ex)
+                {
+                    await JSRuntime.InvokeVoidAsync("alert", $"❌ Failed to upload {file.Name}: {ex.Message}");
+                }
+            }
+
+            await OnUploadComplete.InvokeAsync();
+            _selectedFiles.Clear();
+            _uploadProgress.Clear();
+        }
+        finally
+        {
+            _isUploading = false;
+        }
+    }
+
+    private string GetFileIcon(string fileName)
+    {
+        var extension = Path.GetExtension(fileName).ToLower();
+        return extension switch
+        {
+            ".pdf" => "📄",
+            ".docx" or ".doc" => "📝",
+            ".xlsx" or ".xls" => "📊",
+            ".txt" => "📰",
+            _ => "📎"
+        };
+    }
+
+    private string FormatFileSize(long bytes)
+    {
+        string[] sizes = { "B", "KB", "MB", "GB" };
+        double len = bytes;
+        int order = 0;
+        while (len >= 1024 && order < sizes.Length - 1)
+        {
+            order++;
+            len = len / 1024;
+        }
+        return $"{len:0.##} {sizes[order]}";
+    }
+}

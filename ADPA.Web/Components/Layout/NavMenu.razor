@@ -1,0 +1,90 @@
+﻿<div class="nav-scrollable" style="padding-top: 20px;">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All" style="color: white;">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true">🏠</span> Dashboard
+            </NavLink>
+        </div>
+
+        <div style="margin: 20px 15px; color: #ccc; font-size: 14px; font-weight: bold;">DOCUMENTS</div>
+        
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/upload" style="color: white;">
+                <span class="bi bi-upload" aria-hidden="true">📤</span> Upload
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/documents" style="color: white;">
+                <span class="bi bi-list" aria-hidden="true">📋</span> My Documents
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/documents/batch" style="color: white;">
+                <span class="bi bi-batch" aria-hidden="true">⚡</span> Batch Processing
+            </NavLink>
+        </div>
+
+        <div style="margin: 20px 15px; color: #ccc; font-size: 14px; font-weight: bold;">ANALYTICS</div>
+        
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/analytics/dashboard" style="color: white;">
+                <span class="bi bi-analytics" aria-hidden="true">📊</span> Dashboard
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/analytics/reports" style="color: white;">
+                <span class="bi bi-reports" aria-hidden="true">📈</span> Reports
+            </NavLink>
+        </div>
+
+        <div style="margin: 20px 15px; color: #ccc; font-size: 14px; font-weight: bold;">SECURITY</div>
+        
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/security/policies" style="color: white;">
+                <span class="bi bi-shield" aria-hidden="true">🛡️</span> Policies
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/security/monitoring" style="color: white;">
+                <span class="bi bi-monitor" aria-hidden="true">👁️</span> Monitoring
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/security/audit" style="color: white;">
+                <span class="bi bi-history" aria-hidden="true">📜</span> Audit Logs
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+<style>
+.nav-link {
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+    height: 3rem;
+    padding-left: 1rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    margin: 2px 8px;
+}
+
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.nav-link.active {
+    background-color: rgba(255,255,255,0.25);
+}
+
+.nav-link span {
+    margin-right: 8px;
+}
+</style>
+
